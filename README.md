@@ -1,47 +1,45 @@
-# Bootstrap - One Million Lines
-Vous allez reproduire une maquette relativement basique avec Bootstrap.
+# TP : One Million Lines
 
-## Objectifs
-* Mettre en pratique vos connaissances de Bootstrap de manière concrète.
-* Découvrir de nouvelles fonctionnalités de Bootstrap.
+Bienvenue dans ce TP d'intégration web. Vous allez reproduire une *landing page* complète et responsive à partir d'une maquette graphique, en utilisant les fonctionnalités de **Bootstrap**.
 
-## Consignes
-Vous devez écrire le code HTML (index.html) et un peu de CSS (custom.css) pour but de reproduire
-la charte graphique jointe à l’identique. Vous ne toucherez pas au code des autres fichiers. Tous
-les fichiers nécessaires vous sont fournis. Vous n’avez ni besoin d’en ajouter, ni d’en supprimer.
-Votre référence est le fichier [screenshot.png](https://github.com/simplon-roanne/bootstrap-onemillionlines/blob/master/screenshot.png).
+---
 
-## Spécifications minimales
-Votre template HTML contiendra plusieurs parties dans l'ordre :
-* une barre de navigation
-* un jumbotron ayant pour id ‘home’, contenant la première partie et son contenu
-* une div ayant pour id ‘who’, contenant la seconde partie et son contenu
-* une div ayant pour id ‘get-involved’, contenant la troisième partie et son contenu
-* un footer
-* une div ayant pour id 'back-to-top’ et contenant la flèche permettant de remonter au jumbotron
+## 🎯 Objectifs pédagogiques
+- Maîtriser le système de grille Bootstrap.
+- Manipuler les composants interactifs Bootstrap.
+- Savoir surcharger proprement du CSS sans altérer la bibliothèque tierce.
+- Mettre en place un scroll fluide et des interactions en JavaScript Vanilla.
 
-Lorsque l’utilisateur clique sur le gros bouton ‘Learn more >>’ du jumbotron, une boite de dialogue
-s’ouvrira avec une vidéo YouTube dedans [voir screenshot-modal.png](https://github.com/simplon-roanne/bootstrap-onemillionlines/blob/master/screenshot-modal.png). Indice : vous devrez
-utiliser un concept de modal.
+---
 
-Vous utiliserez le système de grille de Bootstrap pour la partie ‘get-involved'.
-Vous devrez certainement surcharger (== ré-écrire par dessus) l’une ou l’autre classe de
-Bootstrap. Le fichier custom.css est mis à votre disposition à cet effet. Vous ne ferez **AUCUNE**
-modification dans le fichier bootstrap.min.css.
+## 📋 Spécifications techniques & Cahier des charges
 
-Votre site doit être responsive. Vous devrez redimensionner/replacer certaines choses. Voir les
-[screenshot-min1200.png](https://github.com/simplon-roanne/bootstrap-onemillionlines/blob/master/screenshot-min1200.png), [screenshot-min992.png](https://github.com/simplon-roanne/bootstrap-onemillionlines/blob/master/screenshot-min992.png) et [screenshot-min768.png](https://github.com/simplon-roanne/bootstrap-onemillionlines/blob/master/screenshot-min768.png)
-Pour l’affichage sur smartphone (min-width: 768px), votre barre de navigation ne doit afficher que
-le logo et une icône pour accéder au menu.
+### 1. Sémantique et découpage
+Votre page doit respecter le découpage ordonné suivant :
+1. `<header>` / `<nav>` : Barre de navigation fixe ou collante (`sticky-top`) avec logo à gauche et liens à droite.
+2. `<section id="home">` : Section d'accroche (Hero) contenant le titre, le slogan et le bouton d'action.
+3. `<section id="who">` : Présentation du projet avec texte et image illustrative.
+4. `<section id="get-involved">` : Grille Bootstrap présentant les différentes manières de participer.
+5. `<footer>` : Pied de page contenant les mentions légales, copyright et liens réseaux sociaux.
+6. `<button id="back-to-top">` : Bouton flottant permettant de remonter au sommet de la page.
 
-Pour afficher les icônes qui ne sont pas présentent dans les images, vous utiliserez Font Awesome
-(http://fortawesome.github.io/Font-Awesome/) qui est déjà intégré au projet.
+### 2. Modale Vidéo
+- Un clic sur le bouton **« Learn more »** de la section Home doit ouvrir une **modale Bootstrap**.
+- La modale doit embarquer une vidéo YouTube en conservant un ratio d'affichage parfait grâce à la classe `.ratio .ratio-16x9`.
 
-Conseil : servez-vous de la documentation de Bootstrap, elle est très complète et bourrée
-d'exemples
+### 3. Responsive & Breakpoints
+La maquette doit s'adapter fluidement à toutes les résolutions :
+- **Mobile (< 768px)** : La navbar se replie dans un menu hamburger (`navbar-toggler`), les colonnes de la section `#get-involved` s'empilent verticalement sur 1 colonne.
+- **Tablette (≥ 768px et < 992px)** : Répartition sur 2 colonnes.
+- **Desktop (≥ 992px)** : Menu déplié à plat, répartition sur 3 ou 4 colonnes selon la maquette.
 
-## Spécifications bonus
-Vous implémenterez un _smoothscroll_. Cet effet fait défiler la page "lentement" lorsque l’utilisateur
-clique sur un lien du menu ou la flèche qui permet de remonter au début de la page. Votre code
-JavaScript se trouvera dans le fichier smoothscroll.js lui même situé dans le dossier js.
-Libre à vous de réaliser d’autres bonus. Soyez imaginatif !
+### 4. Styles & Customisation (`css/custom.css`)
+- **Règle d'or** : Ne **JAMAIS** modifier les fichiers sources de Bootstrap.
+- Utilisez des variables CSS et surchargez les classes Bootstrap ciblées pour respecter la typographie, les couleurs et les espacements de la maquette.
+
+---
+
+## 🚀 Bonus & Bonnes pratiques
+- [ ] **Smooth Scroll natif** : Défilement doux lors du clic sur les ancres du menu et le bouton *Back to top*.
+- [ ] **Back-to-top dynamique** : Le bouton n'apparaît que lorsque l'utilisateur a scrollé de plus de 300px vers le bas.
+- [ ] **Support Dark Mode** : Prise en charge du thème sombre avec `data-bs-theme="dark"`.
